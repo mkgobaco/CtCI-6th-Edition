@@ -1,3 +1,4 @@
+<<<<<<< HEAD:Java/Ch_08_Recursion_and_Dynamic_Programming/src/main/java/Q8_06_Towers_of_Hanoi/Question.java
 package Q8_06_Towers_of_Hanoi;
 
 public class Question {
@@ -18,3 +19,28 @@ public class Question {
 		//towers[2].print();
 	}
 }
+=======
+package Q8_06_Towers_of_Hanoi;
+
+public class Question {
+	public static void main(String[] args) {
+		Tower source = new Tower();
+		Tower destination = new Tower();
+		Tower buffer = new Tower();
+		
+		source.name = "s";
+		destination.name = "d";
+		buffer.name = "b";
+		
+		/* Load up tower */
+		int numberOfDisks = 5;
+		for (int disk = numberOfDisks - 1; disk >= 0; disk--) {
+			source.add(disk);
+		}
+		
+		source.print();
+		source.moveDisks(numberOfDisks, destination, buffer);
+		destination.print();
+	}
+}
+>>>>>>> 59018cfcb90292209275db1c4b3ed306d4b07d7f:Java/Ch 08. Recursion and Dynamic Programming/Q8_06_Towers_of_Hanoi/Question.java
