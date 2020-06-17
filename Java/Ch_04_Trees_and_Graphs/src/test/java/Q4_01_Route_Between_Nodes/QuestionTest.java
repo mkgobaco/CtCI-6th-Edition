@@ -1,9 +1,11 @@
 package Q4_01_Route_Between_Nodes;
 
+import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
 
+@Slf4j
 public class QuestionTest {
 
     @Test
@@ -12,6 +14,8 @@ public class QuestionTest {
         Node[] n = g.getNodes();
         Node start = n[3];
         Node end = n[5];
-        assertEquals(true, (Question.search(g, start, end)));
+        Boolean result = Question.search(g, start, end);
+        assertEquals(true, result);
+        log.debug(String.valueOf(result));
     }
 }
