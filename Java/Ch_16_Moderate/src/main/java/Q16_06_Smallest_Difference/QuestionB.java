@@ -2,24 +2,24 @@ package Q16_06_Smallest_Difference;
 import java.util.Arrays;
 
 public class QuestionB {
-	public static int findSmallestDifference(int[] arrayA, int[] arrayB) {
-		if (arrayA.length == 0 || arrayB.length == 0) return -1;
-		Arrays.sort(arrayA);
-		Arrays.sort(arrayB);
-		int indexA = 0;
-		int indexB = 0;
-		int smallestDifference = Integer.MAX_VALUE;
-		while (indexA < arrayA.length && indexB < arrayB.length) {
-			int difference = Math.abs(arrayA[indexA] - arrayB[indexB]);
-			smallestDifference = Math.min(smallestDifference, difference);
-
-			if (arrayA[indexA] < arrayB[indexB]) {
-				indexA++;
+	public static int findSmallestDifference(int[] array1, int[] array2) {
+		Arrays.sort(array1);
+		Arrays.sort(array2);
+		int a = 0;
+		int b = 0;
+		int difference = Integer.MAX_VALUE;
+		while (a < array1.length && b < array2.length) {
+			if (Math.abs(array1[a] - array2[b]) < difference) {
+				difference = Math.abs(array1[a] - array2[b]);
+				if (difference == 0) return difference;
+			}
+			if (array1[a] < array2[b]) {
+				a++;
 			} else {
-				indexB++;
+				b++;
 			}
 		}
-		return smallestDifference;
+		return difference;
 	}
 	
 	public static void main(String[] args) {

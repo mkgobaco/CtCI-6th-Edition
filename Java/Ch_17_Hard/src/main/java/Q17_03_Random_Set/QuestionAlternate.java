@@ -1,10 +1,13 @@
 package Q17_03_Random_Set;
 
-import java.util.Random;
-
 import CtCILibrary.AssortedMethods;
 
 public class QuestionAlternate {
+
+	/* Random number between lower and higher, inclusive */
+	public static int rand(int lower, int higher) { 
+		return lower + (int)(Math.random() * (higher - lower + 1));
+	}
 	
 	/* pick M elements from original array, using only elements 0 through i (inclusive).*/
 	public static int[] pickMRecursively(int[] original, int m, int i) {
@@ -18,8 +21,7 @@ public class QuestionAlternate {
 			return set;
 		} else {
 			int[] set = pickMRecursively(original, m, i - 1);
-			Random rand = new Random();
-			int k = rand.nextInt(i + 1); // Generate random between 0 and i (inclusive)
+			int k = rand(0, i);
 			if (k < m) {
 				set[k] = original[i];
 			}
@@ -29,7 +31,6 @@ public class QuestionAlternate {
 
 	/* pick M elements from original array.*/
 	public static int[] pickMIteratively(int[] original, int m) {
-		if (m > original.length) return null;
 		int[] subset = new int[m];
 		
 		/* Fill in subset array with first part of original array */
@@ -37,11 +38,9 @@ public class QuestionAlternate {
 			subset[i] = original[i];
 		}
 		
-		Random rand = new Random();
-		
 		/* Go through rest of original array. */
 		for (int i = m; i < original.length; i++) {
-			int k = rand.nextInt(i + 1); // Generate random between 0 and i (inclusive)
+			int k = rand(0, i);
 			if (k < m) {
 				subset[k] = original[i];
 			}

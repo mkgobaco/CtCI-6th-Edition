@@ -23,7 +23,7 @@ public class QuestionC {
 					maxAliveYear = births[birthIndex];
 				}
 				birthIndex++; // move birth index
-			} else {
+			} else if (births[birthIndex] > deaths[deathIndex]) {
 				currentlyAlive--; // include death
 				deathIndex++; // move death index
 			}			

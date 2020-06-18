@@ -3,7 +3,7 @@ package Q16_22_Langtons_Ant;
 import java.util.HashSet;
 
 public class Board {	
-	private HashSet<Position> blackCells = new HashSet<Position>();
+	private HashSet<Position> whites = new HashSet<Position>();
 	private Ant ant = new Ant();
 	private Position topLeftCorner = new Position(0, 0);
 	private Position bottomRightCorner = new Position(0, 0);
@@ -12,7 +12,7 @@ public class Board {
 	
 	/* Move ant. */
 	public void move() {
-		ant.turn(!isBlack(ant.position)); // Turn clockwise on white, counter on black
+		ant.turn(isWhite(ant.position)); // Turn
 		flip(ant.position); // flip
 		ant.move(); // move
 		ensureFit(ant.position);
@@ -20,10 +20,10 @@ public class Board {
 	
 	/* Flip color of cells. */
 	private void flip(Position position) {
-		if (blackCells.contains(position)) {
-			blackCells.remove(position);
+		if (whites.contains(position)) {
+			whites.remove(position);
 		} else {
-			blackCells.add(position.clone());
+			whites.add(position.clone());
 		}
 	}
 	
@@ -41,13 +41,13 @@ public class Board {
 	}	
 	
 	/* Check if cell is white. */
-	public boolean isBlack(Position p) {
-		return blackCells.contains(p);
+	public boolean isWhite(Position p) {
+		return whites.contains(p);
 	}
 	
 	/* Check if cell is white. */
-	public boolean isBlack(int row, int column) {
-		return blackCells.contains(new Position(row, column));
+	public boolean isWhite(int row, int column) {
+		return whites.contains(new Position(row, column));
 	}	
 	
 	/* Print board. */
@@ -61,7 +61,7 @@ public class Board {
 			for (int c = colMin; c <= colMax; c++) {
 				if (r == ant.position.row && c == ant.position.column) {
 					sb.append(ant.orientation);
-				} else if (isBlack(r, c)) {
+				} else if (isWhite(r, c)) {
 					sb.append("X");
 				} else {
 					sb.append("_");
