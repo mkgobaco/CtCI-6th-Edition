@@ -59,6 +59,7 @@ public class Cache {
 			listHead.prev = node;
 			node.next = listHead;
 			listHead = node;
+			listHead.prev = null;
 		}
 	}
 	
