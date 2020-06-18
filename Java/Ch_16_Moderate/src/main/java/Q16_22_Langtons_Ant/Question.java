@@ -16,12 +16,12 @@ public class Question {
 			String gs = grid.toString();
 			System.out.println(gs);
 			
-			boolean equals = bs.equals(gs);
-			System.out.println(equals);
-			
-			if (!equals) {
+			if (!bs.equals(gs)) {
+				System.out.println("ERROR");
 				break;
 			}
+			
 		}
 	}
+
 }

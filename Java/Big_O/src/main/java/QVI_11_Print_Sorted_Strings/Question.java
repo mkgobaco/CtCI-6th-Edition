@@ -23,15 +23,14 @@ public class Question {
 	}
 	
 	public static boolean isInOrder(String s) {
-		boolean isInOrder = true;
 		for (int i = 1; i < s.length(); i++) {
 			int prev = ithLetter(s.charAt(i - 1));
 			int curr = ithLetter(s.charAt(i));
 			if (prev > curr) {
-				isInOrder = false;
+				return false;
 			}
 		}
-		return isInOrder;
+		return true;
 	}
 	
 	public static char ithLetter(int i) {
